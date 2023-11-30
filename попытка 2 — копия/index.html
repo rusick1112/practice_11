@@ -1,0 +1,70 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Коты</title>
+<link href="basis.css" rel="stylesheet" />
+<link href="text.css" rel="stylesheet" />
+<link href="band.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="band">
+<div class="title band__title">
+Коты
+</div>
+<div class="band__text">
+Это сайт с котами
+</div>
+</div>
+
+<div class="text" id="changeImageBlock" onclick="changeImages()">
+сделайте буп
+</div>
+
+<div class="band">
+<div class="band__body">
+<div class="band__col">
+<div class="band__elem" id="cat1" onclick="swapImages()">коты 1</div>
+<div class="band__elem" id="cat2" onmouseover="onlineStatus()" onmouseout="offlineStatus()">коты 2</div>
+</div>
+</div>
+</div>
+
+<script>
+function swapImages() {
+const cat1 = document.getElementById('cat1');
+const cat2 = document.getElementById('cat2');
+const temp = cat1.innerHTML;
+cat1.innerHTML = cat2.innerHTML;
+cat2.innerHTML = temp;
+}
+
+
+function onlineStatus() {
+const cat2 = document.getElementById('cat2');
+cat2.innerHTML = 'Коты 2 (Online)';
+}
+
+function offlineStatus() {
+const cat2 = document.getElementById('cat2');
+cat2.innerHTML = 'Коты 2 (Offline)';
+}
+
+
+window.addEventListener('online', function () {
+alert('Сеть подключена! Коты онлайн!');
+});
+
+window.addEventListener('offline', function () {
+alert('Сеть отключена! Коты офлайн!');
+});
+
+
+function changeImages() {
+const changeImageBlock = document.getElementById('changeImageBlock');
+changeImageBlock.innerHTML = '<img src="abisinskaya.jpg" alt="abisinskaya" onclick="alert(\'Это Абиссинская кошка!\')"> ' +
+'<img src="amerikansy_kerl.jpg" alt="amerikansy_kerд" onclick="alert(\'Это американский кёрл!\')">';
+}
+</script>
+
+</body>
+</html>
